@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Client",
+    "\\Client\\Pages",
+    "\\Server\\Pages"
+  ],
+  "SelectedNode": "\\Client\\Pages\\FetchData.razor",
+  "PreviewInSolutionExplorer": false
+}
