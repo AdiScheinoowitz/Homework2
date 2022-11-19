@@ -1,0 +1,46 @@
+﻿@page "/Homework4"
+    <h3>choose a number: </h3>
+    <br />
+    <input type="text" @bind="numStr"/>
+    <input type="button" @onclick="(() => checkNum(numStr))" value="click" />
+    <br />
+    <h4>@txt</h4>
+    <ul> @foreach (string contry in myList) {
+     <li>@contry</li>
+     }
+    </ul>
+
+@code {
+     string numStr="";
+     string txt="";
+
+     List<string> countries = new List<string>() {
+     "Israel", "Thailand", "USA", "canada", "France",
+     "Germany", "Brazil", "Vietnam", "Australia", "Spain"};
+    
+     List<string> myList = new List<string>();
+     
+     private List<string> checkNum(string numStr) {
+        myList.Clear();
+        int number = Convert.ToInt16(numStr);
+ 
+        if (number > 0 && number <= 10)
+             {
+             myList = addToList(number);
+             txt = "";
+             }
+         else 
+             {
+             txt = "הזן מספר בין 1-10";
+             }
+        return myList;
+     }
+     private List<string> addToList(int number) {
+         List<string> newCountries = new List<string>();
+            for (int i = 0; i < number; i++)
+                 {
+                 newCountries.Add(countries[i] + " " + (countries[i].Length).ToString());
+                 }
+            return newCountries;
+     }
+}
