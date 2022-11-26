@@ -1,0 +1,64 @@
+﻿@page "/HomeWork5"
+@using Homework2.Shared.Rectagle
+
+@code {
+     MyRectagle Rectangle1 = new MyRectagle();
+     MyRectagle Rectangle2 = new MyRectagle();
+     double surfaceR1 = 0;
+     double surfaceR2 = 0;
+     double ScopeR1 = 0;
+     double ScopeR2 = 0;
+     string color1 = "";
+     string color2 = "";
+     string surfaceResult = "";
+     string scopeResult = "";
+     
+     private void CalcRectangle(){
+         surfaceR1 = Rectangle1.Surface();
+         surfaceR2 = Rectangle2.Surface();
+         ScopeR1 = Rectangle1.Scope();
+         ScopeR2 = Rectangle2.Scope();
+         color1 = Rectangle1.Color;
+         color2 = Rectangle2.Color;
+
+     if (surfaceR1 > surfaceR2)
+         {
+         surfaceResult = "the " + color1 + " Rectangle has bigger surface";
+         }
+     else{
+         surfaceResult = "the " + color2 + " Rectangle has bigger surface";
+         }
+     if (ScopeR1 > ScopeR2){
+         scopeResult = "the " + color1 + " Rectanglehas bigger scope";
+         }
+     else{
+         scopeResult = "the " + color2 + " Rectanglehas bigger scope";
+         }
+     }
+}
+<span>Rectangle numder 1: </span><br />
+Width:
+<input type="text" @bind="Rectangle1.Width" />
+<br />
+Length:
+<input type="text" @bind="Rectangle1.Length" />
+<br />
+Color:
+<input type="text" @bind="Rectangle1.Color" />
+<br />
+<span>Rectangle numder 2: </span>
+<br />
+Width:
+<input type="text" @bind="Rectangle2.Width" />
+<br />
+Length:
+<input type="text" @bind="Rectangle2.Length" />
+<br />
+Color:
+<input type="text" @bind="Rectangle2.Color" />
+<br />
+<input type="button" value="Click Me" @onclick="CalcRectangle"/>
+<br />
+<span style="color:@color1"> @surfaceResult</span>
+<br />
+<span style="color:@color2"> @scopeResult</span>
